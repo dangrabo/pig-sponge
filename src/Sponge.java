@@ -31,11 +31,44 @@ public class Sponge {
     assertEqual(6, spongeCase("e"), "e");
   }
 
+  // split the scentece in to array
+  // rebuild the sentece and return
+
+  // turn it into lowercase
+  // itterate over each character of the word alternative between capitalization
+  // return the new word
+
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    String[] words = sentence.split(" ");
+    String result = "";
+    
+    for (String word : words) {
+      result += spongeWord(word);
+      result += " ";
+    }
+
+    return result.substring(0, result.length() - 1);
   }
 
+  public static String spongeWord(String word) {
+    word = word.toLowerCase();
+    String newWord = "" + word.charAt(0);
+    for (int i = 1; i < word.length(); i++) {
+      char spongeChar = word.charAt(i);
+      String spongeChar2 = "";
+      if (i % 2 == 1) {
+        spongeChar2 += spongeChar;
+        spongeChar2 = spongeChar2.toUpperCase();
+        newWord += spongeChar2;
+      }
+      else {
+        newWord += spongeChar;
+      }
+      
+    }
+    return newWord;
+  }
 
   // Method to help with testing, you do not need to read this.
   public static void assertEqual(int testNumber, String actual, String expected) {

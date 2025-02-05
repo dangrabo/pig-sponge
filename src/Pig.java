@@ -45,10 +45,7 @@ public class Pig {
                 newString += current + " ";
             }
         }
-        if (newString.length() > 0) {
-            newString = newString.substring(0, newString.length() - 1);
-        }
-        return newString;
+        return newString.substring(0, newString.length() - 1);
     }
 
 
